@@ -1,0 +1,46 @@
+#!/usr/bin/perl   
+# Toan Nguyen
+# CSCI 342             
+# perl1_2.cgi calculate Grade for CSCI 342
+use CGI ':standard';
+print header;
+print start_html("perl1_2");
+print '<form action="http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_Ac2.cgi" method="post">';
+print 'Grade Calculator for CSCI 342: ';
+print br,br,'Program 1: ';
+print  '<input type="number" size ="10" name ="Program1" Min="0" Max="100">';
+print 'Program 2: ';
+print '<input type="number" size ="10" name ="Program2" Min="0" Max="100" >';
+print 'Program 3: ';
+print '<input type="number" size ="10" name ="Program3" Min="0" Max="100">';
+print 'Program 4: ';
+print '<input type="number" size ="10" name ="Program4" Min="0" Max="100">';
+print 'Program 5: ';
+print '<input type="number" size ="10" name ="Program5" Min="0" Max="100">';
+print br,br,'Quiz 1: ';
+print  '<input type="number" size ="8" name ="Quiz1" Min="0" Max="10">';
+print 'Quiz 2: ';
+print '<input type="number" size ="8" name ="Quiz2" Min="0" Max="10">';
+print 'Quiz 3: ';
+print '<input type="number" size ="8" name ="Quiz3" Min="0" Max="10">';
+print 'Quiz 4: ';
+print '<input type="number" size ="8" name ="Quiz4" Min="0" Max="10">';
+print 'Quiz 5: ';
+print '<input type="number" size ="8" name ="Quiz5" Min="0" Max="10">';
+print 'Quiz 6: ';
+print  '<input type="number" size ="8" name ="Quiz6" Min="0" Max="10">';
+print 'Quiz 7: ';
+print '<input type="number" size ="8" name ="Quiz7" Min="0" Max="10">';
+print 'Quiz 8: ';
+print '<input type="number" size ="8" name ="Quiz8" Min="0" Max="10">';
+print 'Quiz 9: ';
+print '<input type="number" size ="8" name ="Quiz9" Min="0" Max="10">';
+print 'Quiz 10: ';
+print '<input type="number" size ="8" name ="Quiz10" Min="0" Max="10">';
+print br,br,'Midterm: ';
+print '<input type="number" size ="10" name ="Midterm" Min="0" Max="100">';
+print br,br,'Final: ';
+print '<input type="number" size ="10" name ="final" Min="0" Max="100">';
+print br,br, '<input type="submit" value="Submit Query">';
+print '<input type="reset" value="Reset">';
+print '</form>', end_html; 

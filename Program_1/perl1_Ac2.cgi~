@@ -1,0 +1,70 @@
+#!/usr/bin/perl                
+# perl1_Ac2.cgi Action form for perl1_2
+use CGI ':standard';
+print header;
+print start_html("Grade output");
+$prog1 = param("Program1");
+$prog2 = param("Program2");
+$prog3 = param("Program3");
+$prog4 = param("Program4");
+$prog5 = param("Program5");
+$quiz1 = param("Quiz1");
+$quiz2 = param("Quiz2");
+$quiz3 = param("Quiz3");
+$quiz4 = param("Quiz4");
+$quiz5 = param("Quiz5");
+$quiz6 = param("Quiz6");
+$quiz7 = param("Quiz7");
+$quiz8 = param("Quiz8");
+$quiz9 = param("Quiz9");
+$quiz10 = param("Quiz10");
+$totalquiz = 0;
+$midterm = param("Midterm");
+$final = param("final");
+if ($prog1 eq '') { $prog1 = 0; }
+if ($prog2 eq '') { $prog2 = 0; }
+if ($prog3 eq '') { $prog3 = 0; }
+if ($prog4 eq '') { $prog4 = 0; }
+if ($prog5 eq '') { $prog5 = 0; }
+if ($quiz1 eq '') { $quiz1 = 0; }
+if ($quiz2 eq '') { $quiz2 = 0; }
+if ($quiz3 eq '') { $quiz3 = 0; }
+if ($quiz4 eq '') { $quiz4 = 0; }
+if ($quiz5 eq '') { $quiz5 = 0; }
+if ($quiz6 eq '') { $quiz6 = 0; }
+if ($quiz7 eq '') { $quiz7 = 0; }
+if ($quiz8 eq '') { $quiz8 = 0; }
+if ($quiz9 eq '') { $quiz9 = 0; }
+if ($quiz10 eq '') { $quiz10 = 0; }
+if ($midterm eq '') { $midterm = 0; }
+if ($final eq '') { $final = 0; }
+
+	$propercent = (($prog1 + $prog2 + $prog3 + $prog4 + $prog5) / 100) * 10;
+	$midper = ($midterm * 20) / 100;	
+	$finalper = ($final * 20) / 100;
+	@quizarray = ($quiz1, $quiz2,$quiz3, $quiz4,$quiz5, $quiz6,$quiz7, $quiz8,$quiz9, $quiz10);
+	@s = sort {$b <=> $a} @quizarray;
+		for ($i = 0; $i < 6; $i++)
+		{
+		  $totalquiz = $totalquiz + $s[$i];
+		  
+		}
+		
+		$quizpercent = $totalquiz * 1/6;
+		
+	}
+	$total = $propercent + $quizpercent + $midper + $finalper;
+	$total = sprintf("%.0f", $total);
+	print br,"Your Total Grade is: $total";
+	if (90 <= $total && $total <= 100)
+	{print br, "Grade A";}
+	if (80 <= $total && $total <= 89)
+	{print br, "Grade B";}
+	if (70 <= $total && $total <= 79)
+	{print br, "Grade C";}
+	if (60 <= $total && $total <= 69)
+	{print br, "Grade D";}
+	elsif ($total <= 59) {print br, "Grade F";}
+
+ print end_html;
+

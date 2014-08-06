@@ -1,0 +1,15 @@
+#!/usr/bin/perl  
+# Toan Nguyen
+# CSCI 342              
+# perl1_1.cgi calculate the Miles Per Gallons
+use CGI ':standard';
+print header;
+print start_html("perl1_1");
+print '<form action="http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_Ac.cgi" method="post">';
+print 'Enter the number of miles on your Odometer ';
+print '<input type="number" size ="15" name ="Miles" Min = "0">';
+print br, 'Enter the gallon that you purchased ';
+print '<input type="number" size ="15" name ="Gallons" Min = "0" Max= "100">';
+print br, '<input type="submit" value="Click To Submit">';
+print '<input type="reset" value="Erase and Restart">';
+print '</form>', end_html; 

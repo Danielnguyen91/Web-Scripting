@@ -1,0 +1,51 @@
+
+<?php>
+/* Toan Nguyen 
+student page to display information about student and project */
+$information = $_POST['group'];
+$DBConnect = @mysqli_connect("db.cs.wwu.edu","nguyen82_reader","JzmTV9NWZ");
+$DBSelect = @mysqli_select_db($DBConnect, "nguyen82_CS342");
+switch($information) {
+	case "student":
+	$result = mysqli_query($DBConnect,"SELECT student.first_name, student.last_name, project.Name FROM student LEFT JOIN project ON student.Wnum=project.Wnum
+	WHERE student.verified = 1");
+	while ($row = mysqli_fetch_array($result)) {
+	echo "Name: " ;echo $row{'first_name'}; echo " " ;echo $row{'last_name'}; echo ", " ; echo "Project: " ;echo $row{'Name'};echo "<br>";
+	}
+	echo "<br>";
+	echo "<br>";
+		break;
+	case "project":
+	$result = mysqli_query($DBConnect,"SELECT project.Name, student.first_name, student.last_name, project.URL, project.photo FROM project
+	 LEFT JOIN student on project.Wnum = student.Wnum");
+	while ($row = mysqli_fetch_array($result)) {
+	echo "Project Name: " ;echo $row{'Name'}; echo ", "; echo "URL: " ;echo $row{'URL'}; echo ", "; echo "Photo" ;
+	if (!empty($row{'photo'})) {
+	echo "<td>";?> <img src="<?php echo $row['photo']; ?>" height = "150" width="150"> <?php echo "</td>";
+ 	 }
+	echo ", ";echo "Student Name: " ; echo $row{'first_name'}; echo " "; echo $row{'last_name'};
+	echo "<br>";
+	 }
+	echo "<br>";
+	echo "<br>";
+		break;
+
+}
+mysqli_close($DBConnect);
+
+?>
+
+<html>
+<head><title> The Student page information </title> </head>
+<body> 
+<form action="student.php" method="POST">
+<p>Choose the information you want to look up</p>
+<input type="radio" name="group" value="student">Student information<br>
+<input type="radio" name="group" value="project">project information<br>
+<br/>
+<input type="submit" value="submit">
+<input type="reset" value="reset">
+</form>
+</body>
+</html>
+

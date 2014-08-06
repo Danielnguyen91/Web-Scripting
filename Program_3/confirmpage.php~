@@ -1,0 +1,5 @@
+<?php
+	echo "Your operation is success, Redirect to admin page in 3...2...1"; 
+	echo "<meta http-equiv='Refresh' content='3; URL=admin.php'>";
+
+?>

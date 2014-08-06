@@ -1,0 +1,14 @@
+#!/usr/bin/perl  
+# Toan Nguyen
+# CSCI 342 
+use CGI ':standard';
+print header;
+print start_html('Read text file');
+print '<form action="http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_2/perl2_Ac3.cgi" method="post">';
+print br, "enter the file name you want to read";
+print br,br,'<input type ="Text" size ="15" name ="file" >';
+print br,br,'<input type="submit" value="Submit">';
+print '<input type="reset" value="Erase">';
+print '</form>';
+
+print end_html; 

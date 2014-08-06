@@ -1,0 +1,16 @@
+#!/usr/local/bin/ruby
+require 'open-uri'
+require 'cgi'
+cgi = CGI.new
+open("http://rss.nytimes.com/services/xml/rss/nyt/Europe.xml") {|src|
+  open("save.txt","wb") {|dst|
+      dst.write(src.read)
+  }
+}
+
+
+
+
+puts "Content-type: text/html"
+puts
+

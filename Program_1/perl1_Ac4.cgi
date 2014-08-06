@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+# perl1_4 check password form and print the output
+use CGI ":standard";
+print header;
+print start_html("perl1_4 output");
+$password = param('passwd');
+$q = new CGI;
+$integer = 1;
+if ($password eq 'bozo')
+	{
+	  print 'Square Table';
+	  print $q->table({-border=>1},
+			$q->Tr($q->th(["Integer(x)","Square of Integer(x^2)"])),#header
+			$q->Tr($q->th([$integer,$integer ** 2])),
+			$q->Tr($q->th([$integer = 2,$integer ** 2])),
+			$q->Tr($q->th([$integer = 3,$integer ** 2])),
+			$q->Tr($q->th([$integer = 4,$integer ** 2])),
+			$q->Tr($q->th([$integer = 5,$integer ** 2])),
+			$q->Tr($q->th([$integer = 6,$integer ** 2])),
+			$q->Tr($q->th([$integer = 7,$integer ** 2])),
+			$q->Tr($q->th([$integer = 8,$integer ** 2])),
+			$q->Tr($q->th([$integer = 9,$integer ** 2])),
+			$q->Tr($q->th([$integer = 10,$integer ** 2])));
+			
+} else {
+	print 'sorry you do not type the right password ';
+	print start_html(
+      -head=>meta({-http_equiv => 'refresh',
+        -content => '3;URL=http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_4.cgi' }),
+          );
+
+       }
+print end_html;

@@ -1,0 +1,17 @@
+#!/usr/bin/perl 
+# Toan Nguyen
+# CSCI 342              
+# perl1_3.cgi conversion currency and gas between US and Candian unit
+use CGI ':standard';
+print header;
+print start_html("perl1_3");
+print '<form action="http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_Ac3.cgi" method="post">';
+print 'Enter the amount of purchase ';
+print '<input type="text" size ="15" name ="Money">';
+print br, 'Enter quantity of gas purchase ';
+print '<input type="text" size ="15" name ="Gas">';
+print br,'<input type="radio" name="Conversion" value="USA"> US';
+print  '<input type="radio" name="Conversion" value="Canada"> Canada';
+print br,'<input type="submit" value="Click To Submit">';
+print '<input type="reset" value="Reset">';
+print '</form>',end_html;

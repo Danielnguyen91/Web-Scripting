@@ -1,0 +1,23 @@
+#!/usr/bin/perl                
+# Toan Nguyen
+# CSCI 342
+# perl1_Ac.cgi the action form of Perl1_1 program
+use CGI ':standard';
+print header;
+print start_html("Calculate MPG");
+$userMile = param("Miles");
+$userGallon = param("Gallons");
+if (($userMile =~ /^+?\d+\.?\d*$/) && ($userGallon =~ /^(?:100|\d{1,2})(?:\.\d{0,1})?$/)) {
+   $MPG = $userMile / $userGallon;
+   $MPG = sprintf("%.2f", $MPG);
+   print "Car consumption: $MPG mpg";
+  } else {
+   print "\please enter the valid input\n";
+   print start_html(
+      -head=>meta({-http_equiv => 'refresh',
+        -content => '3;URL=http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_1.cgi' }),
+          );
+}
+
+
+print end_html; 

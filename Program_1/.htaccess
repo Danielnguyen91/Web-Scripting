@@ -1,0 +1,4 @@
+AuthUserFile /usr/home/nguyen82/public_html/cgi-bin/Program_1/.htpasswd
+AuthName "Protecting My Program 1"
+AuthType Basic
+Require valid-user

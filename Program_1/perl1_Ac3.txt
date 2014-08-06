@@ -1,0 +1,60 @@
+#!/usr/bin/perl 
+# Toan Nguyen
+# CSCI 342              
+# perl1_Ac3.cgi Action form of perl1_3 program
+use CGI ':standard';
+print header;
+print start_html("Conversion tool");
+$usermoney = param("Money");
+$usergas = param("Gas");
+$radio = param("Conversion");
+print "Conversion result";
+ if( $radio eq "Canada") {
+	if (($usermoney =~ /^+?\d+\.?\d*$/) && ($usergas =~ /^+?\d+\.?\d*$/)) 
+		{
+		   $usercan = $usermoney / 0.91;
+		   $userlit = $usergas / 0.26417;
+		   $usercan = sprintf("%.2f", $usercan);
+		   $userlit = sprintf("%.2f", $userlit);
+		   print br, "$usermoney dollars = $usercan dollars canada";
+		   print br,"$usergas gallons = $userlit liters";
+		}
+	 else{
+		print "\please enter the valid input\n";
+                print start_html(
+               -head=>meta({-http_equiv => 'refresh',
+                -content => '3;URL=http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_3.cgi' }),
+          );
+      }
+
+	
+ } elsif( $radio eq "US") {
+	if (($usermoney =~ /^+?\d+\.?\d*$/) && ($usergas =~ /^+?\d+\.?\d*$/)) 
+		{
+		   $userus = $usermoney * 0.91;
+		   $usergallon = $usergas * 0.26417;
+		   $userus = sprintf("%.2f", $userus);
+		   $usergallon = sprintf("%.2f", $usergallon);
+		   print br,"$usermoney Dollars canada = $userus Dollars ";
+		   print br,"$usergas Liters = $usergallon Gallons";
+		}
+	 else{
+		print "\please enter the valid input\n";
+                print start_html(
+               -head=>meta({-http_equiv => 'refresh',
+                -content => '3;URL=http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_3.cgi' }),
+          );
+}
+}
+else {
+	print br,"\Please choose one of unit you want to convert to\n";
+                print start_html(
+               -head=>meta({-http_equiv => 'refresh',
+                -content => '3;URL=http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_1/perl1_3.cgi' }),
+          );
+}
+
+
+	
+
+print end_html;

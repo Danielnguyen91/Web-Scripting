@@ -1,0 +1,14 @@
+#!/usr/bin/perl  
+# Toan Nguyen
+# CSCI 342  
+# Perl program to generate the link and parse out all absolute urls and gif image of the link
+use CGI ':standard';
+print header;
+print start_html('Generating URL link');
+print '<form action="http://sw.cs.wwu.edu/~nguyen82/cgi-bin/Program_2/perl2_Ac.cgi" method="post">';
+print 'Enter the link to the textbox below for generating';
+print br,br,'<input type ="Text" size ="15" name ="URL" >';
+print br,br,'<input type="submit" value="Click To Submit">';
+print '<input type="reset" value="Erase">';
+print '</form>';
+print end_html;
